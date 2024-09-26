@@ -35,9 +35,35 @@ Anaconda - Python 3.7
 
 i) Using Averaging Filter
 ```Python
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
 
+image1 = cv2.imread(r"C:\Users\admin\Downloads\image1.jpeg")
+image2 = cv2.cvtColor(image1, cv2.COLOR_BGR2RGB) 
 
+# Create an averaging kernel
+kernel = np.ones((11, 11), np.float32) / 121  # 11x11 kernel for averaging
 
+# Apply the averaging filter
+image3 = cv2.filter2D(image2, -1, kernel)
+
+# Display the original and filtered images
+plt.figure(figsize=(10, 8))
+
+# Original Image
+plt.subplot(1, 2, 1)
+plt.imshow(image2)
+plt.title("Original Image")
+plt.axis("off")
+
+# Averaging Filtered Image
+plt.subplot(1, 2, 2)
+plt.imshow(image3)
+plt.title("Averaging Filter Applied")
+plt.axis("off")
+
+plt.show()
 
 ```
 ii) Using Weighted Averaging Filter
@@ -136,18 +162,10 @@ plt.show()
 </br>
 
 i) Using Averaging Filter
-</br>
-</br>
-</br>
-</br>
-</br>
+![image](https://github.com/user-attachments/assets/061cc7ad-7889-43f7-85fa-ae3436d21dfa)
 
 ii)Using Weighted Averaging Filter
-</br>
-</br>
-</br>
-</br>
-</br>
+![image](https://github.com/user-attachments/assets/5e3fa5f8-edcb-46a9-aab0-8e8e57860d61)
 
 iii) Using Minimum Filter
 </br>
@@ -173,7 +191,9 @@ v) Using Median Filter
 ### 2. Sharpening Filters
 </br>
 i) Using Laplacian Kernal
-![Screenshot 2024-09-26 154809](https://github.com/user-attachments/assets/bca07d4e-86a5-4065-96fe-7c5450f399ed)
+
+![Screenshot 2024-09-26 154809](https://github.com/user-attachments/assets/d9c755d0-b814-41e8-9b6c-617cbdb0ef12)
+
 
 ii) Using Laplacian Operator
 ![image](https://github.com/user-attachments/assets/aa119ec7-64fc-4647-87a2-a7694a641780)
